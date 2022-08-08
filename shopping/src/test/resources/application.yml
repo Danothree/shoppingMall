@@ -1,0 +1,9 @@
+spring:
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE
+
+server:
+  port: 10000
