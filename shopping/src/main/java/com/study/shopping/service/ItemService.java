@@ -1,6 +1,8 @@
 package com.study.shopping.service;
 
 import com.study.shopping.domain.item.Item;
+import com.study.shopping.domain.item.ItemStatus;
+import com.study.shopping.dto.ItemDTO;
 import com.study.shopping.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,11 @@ public class ItemService {
     public Long saveItem(Item item) {
         Item saveItem = itemRepository.save(item);
         return saveItem.getId();
+    }
+
+    public void updateItem(Long itemId, String name, int price, int stockQuantity, ItemStatus status) throws Exception {
+        Item findItem = itemRepository.findById(itemId).orElseThrow(() -> new Exception("no item"));
+        findItem.updateItem(name, price, stockQuantity, status);
     }
 
     @Transactional(readOnly = true)

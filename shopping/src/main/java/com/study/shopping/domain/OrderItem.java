@@ -1,12 +1,15 @@
 package com.study.shopping.domain;
 
 import com.study.shopping.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
